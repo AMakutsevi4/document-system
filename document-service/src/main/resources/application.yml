@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/document-registry_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        highlight_sql: true
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    drop-first: ${LIQUIBASE_DROP_FIRST:false}
+
+  logging:
+    level:
+      root: INFO
+      org.hibernate.SQL: ERROR
+      org.hibernate.type.descriptor.sql.BasicBinder: ERROR
+      org.springframework.orm.jpa: ERROR
+      ru.doc.workflow: INFO
