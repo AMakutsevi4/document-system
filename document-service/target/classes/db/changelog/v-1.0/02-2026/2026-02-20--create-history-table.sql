@@ -1,7 +1,7 @@
 --liquibase formatted sql
---changeset Alexandr Makutsevich:2026-02-18--create-document-history-table.sql
+--changeset Alexandr Makutsevich:2026-02-20--create-history-table.sql
 
-CREATE TABLE document_history (
+CREATE TABLE history (
     id BIGSERIAL PRIMARY KEY,
     document_id BIGINT NOT NULL REFERENCES documents(id),
     initiator VARCHAR(255) NOT NULL,
